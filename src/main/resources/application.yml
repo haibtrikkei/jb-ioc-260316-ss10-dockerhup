@@ -1,0 +1,26 @@
+spring:
+    application:
+        name: demo_paging_sorting
+    datasource:
+        driver-class-name: org.postgresql.Driver
+        password: 1234$
+        url: jdbc:postgresql://localhost:5432/demo_paging_sorting
+        username: postgres
+    jpa:
+        hibernate:
+            ddl-auto: update
+        properties:
+            hibernate:
+                dialect: org.hibernate.dialect.PostgreSQLDialect
+                format_sql: true
+        show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+          include: health,info,prometheus
+
+  metrics:
+      tags:
+        application: ${spring.application.name}
